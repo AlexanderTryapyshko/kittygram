@@ -18,7 +18,7 @@ services:
       - db
     volumes:
       - static_volume:/backend_static
-      - media:/media
+      - media:/app/media
   frontend:
     env_file: .env
     image: tryapch/kittygram_frontend
@@ -28,8 +28,10 @@ services:
   gateway:
     image: tryapch/kittygram_gateway
     env_file: .env
+    depends_on:
+      - backend
     ports:
       - 9000:80
     volumes:
       - static_volume:/staticfiles
-      - media:/media
+      - media:/app/media
