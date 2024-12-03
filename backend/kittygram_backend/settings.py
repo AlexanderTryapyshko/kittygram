@@ -2,17 +2,25 @@
 import os
 from pathlib import Path
 
+from django.core.management.utils import get_random_secret_key
 from dotenv import load_dotenv
 
 load_dotenv()
 
+def get_debug():
+    return os.getenv('DEBUG').lower == 'true'
+
+def get_allowed_hosts():
+    allowed_hosts  = os.getenv('ALLOWED_HOSTS','localhost, 127.0.0.1')
+    return [host.strip() for host in allowed_hosts.split(',')]
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'django')
+SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key)
 
-DEBUG = True
+DEBUG = get_debug()
 
-ALLOWED_HOSTS = ['51.250.109.178', '127.0.0.1', 'tryapkitties.hopto.org']
+ALLOWED_HOSTS = get_allowed_hosts()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
