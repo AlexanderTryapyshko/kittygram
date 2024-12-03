@@ -1,5 +1,7 @@
 #  Проект "Kittygram"
 
+![example workflow](https://github.com/AlexanderTryapyshko/kittygram_final/actions/workflows/main.yml/badge.svg)
+
 Позволяет собрать коллекцию разнообразных котов.
 
 ### Стек использованных технологий.
@@ -55,6 +57,26 @@
         ```
         source env/scripts/activate 
         ```
+
+* Запусить Docker Compose:
+
+    ```
+    docker compose -f docker-compose.production.yml up --build
+    ```
+
+* Собрать статику:
+
+    ```
+    docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic
+
+    docker compose -f docker-compose.production.yml exec backend cp -r /app/collected_static/. /backend_static/static/
+    ```
+
+* Выполнить миграции:
+
+    ```
+    docker compose -f docker-compose.production.yml exec backend python manage.py migrate
+    ```
 
 * В корне проекта создать файл .env, в котором указать данные для взаимодействия с PostgreSQL:
 
