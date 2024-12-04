@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def get_debug():
-    return os.getenv('DEBUG', 'True')[0].lower() == 'true'
+    return os.getenv('DEBUG', 'True').lower() == 'true'
 
 def get_allowed_hosts():
     allowed_hosts  = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1')
