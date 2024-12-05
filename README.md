@@ -94,6 +94,10 @@
 
     - SECRET_KEY - значение SECRET_KEY Django-проекта
 
+    - DEBUG - состояние дебага
+
+    - ALLOWED_HOSTS - доступные адреса проекта (ip-адрес и домен)
+
 * В настройках settings.py проекта в ALLOWED_HOSTS указать ip-адрес сервера и домен
 
 * В файле docker-compose.production в services указать адреса образов на docker hub, по которым эти образы буду собираться в формате username/imagename:tag, где:

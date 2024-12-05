@@ -5,18 +5,13 @@ from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 from dotenv import load_dotenv
 
+from kittygram_backend.utils import get_allowed_hosts, get_debug
+
 load_dotenv()
-
-def get_debug():
-    return os.getenv('DEBUG', 'True').lower() == 'true'
-
-def get_allowed_hosts():
-    allowed_hosts  = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1')
-    return [host.strip() for host in allowed_hosts.split(',')]
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key)
+SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 
 DEBUG = get_debug()
 
