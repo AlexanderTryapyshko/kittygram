@@ -6,14 +6,14 @@
 
 ### Стек использованных технологий.
 
-Бэкенд проекта написан на языке Python при помощи фреймворков Django REST Framework и React
+Бэкенд проекта написан на языке Python при помощи фреймворков Django REST Framework и React.
 
 ### Как запустить проект: 
 
 * Клонировать репозиторий и перейти в него в командной строке: 
 
     ``` 
-    git clone git@github.com:AlexanderTryapyshko/kittygram_final.git
+    git clone git@github.com:AlexanderTryapyshko/kittygram.git
     ``` 
 
 * В разделе settings - secrets and variables - actions создать секреты:
